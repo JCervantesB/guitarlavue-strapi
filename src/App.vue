@@ -23,8 +23,7 @@ onMounted(() => {
         .then(data => {
             guitarras.value = data.data.map((item, index) => {
                 const guitarra = item.attributes;
-                guitarra.id = index.toString(); // Asignar el índice como id
-                // Obtener la guitarra destacada para el header
+                guitarra.id = index.toString(); 
                 if (guitarra.url === 'vai') {
                     guitarraDestacada.value = guitarra;
                 }
@@ -112,7 +111,9 @@ const vaciarCarrito = () => {
         <h2 class="text-center">Nuestra Colección</h2>
 
         <div class="row mt-5">
-            <Guitarra v-for="guitarra in guitarras" :guitarra="guitarra" :key="guitarra.url" @agregar-carrito="agregarCarrito" />
+            <Guitarra 
+                v-for="guitarra in guitarras" :guitarra="guitarra" :key="guitarra.url" @agregar-carrito="agregarCarrito" 
+            />
         </div>
     </main>
 
